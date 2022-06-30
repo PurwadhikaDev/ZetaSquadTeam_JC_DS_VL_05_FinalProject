@@ -1,0 +1,195 @@
+> # **Final Project - Bank Marketing Campaign**
+Group   : Zeta Squad
+
+Member  :
+- Zaki Fajri
+- Monika Pangestu
+- Deryl Baharudin
+
+---
+**SECTION**:
+<BR> [1. DATA UNDERSTANDING](#1-data-understanding)
+<BR> [2. DATA PROCESSING](#3-data-processing)
+<BR> [3. CONCLUSION](#4-conclusion)
+<BR> [4. RECOMMENDATION](#5-recommendation)
+
+
+---
+# **Business Problem and Data Understanding**
+---
+## **Define Business Problem**
+
+### **Context**
+
+Bank or Financial services experienced a dramatic change in terms of technology, strategy, and customer service due to globalization of economics. This situation challenge every banking sector to adopt the emerging technologies and applied them in their internal business. Its also mean how those banking sectors can use the technology in embracing their customers. 
+
+One of technology-enabled marketing practice that many of banking sector applied these days called telemarketing.
+
+
+>***Telemarketing*** : *is a direct marketing strategy method in which a salesperson acquires the prospective customer's willingness to purchase products or services over phone calls.*
+
+In simply way, the bank embrace the customer through phone calls and offer their products. Those campaigns activity usually carried out by the marketing department or Customer Care & Telemarketing.
+
+We must keep in mind that every campaign that were carried out are inseparable with operational costs. The effectiveness and efficiency of these activities will certainly affect operational costs. And this is the main concern for every banking sector : minimize/maintain the cost in order maximize the gain.
+
+Portuguese Bank is one of the banking sector that are experiencing the same concern. They offering the client's to place a term deposit through telemarketing. But there has been a revenue decline and would like to know what actions to take.
+
+Zeta Squad as the Bank's DS team has an important task to find out the root cause and provide appropiate recommendations in order to increase the revenue.
+
+### **Problem**
+
+**> Problem Stakeholder : Portuguese Bank**
+
+
+From Portugal bank data, we found out that only few customer opened term deposits (appx. 11% of total customer that contacted by the marketing teams). This is one of the reasons why the decline in revenue occurred. We can see that there might be a campaign failure in the process. This indicate that the campaign didn't inline with the targeted customer. Which also mean that the bank marketing teams has not effectively delivered the right campaigns to the right customers. They did the same campaign to every single customers without did the selection first (which most likely to open the deposit & not open the deposit). This behaviour leads to several problems :
+
+- For corporate business:
+    - Waste of time, human resources, and operational costs for unsuccessful telemarketing activities.
+    - Loss of potential customers because wasted resources should be used for more potential consumers.
+
+- For Customers:
+    - Consumers are annoyed with junk phones.
+
+    ### **Goals**
+
+**> Goals Stakeholder : Zeta Squad**
+
+It would be better and effective if the bank marketing teams know which customers that most likely interested in opening a deposit, so they can maximized the resource and minimized the loss.
+
+Our goal is:
+1. Create a machine learning model to predict customers who most likely make deposits, so that banks can maximize campaigns that are carried out. Our target is to create a machine learning with good performance to predict customer's choice.
+
+2. Find out which factors that can influence a customer's decision to make a deposit or not, so that banks can create more effective campaigns.
+
+### **Analytics Approach**
+
+These are the following steps that will be performed to complete the task:
+
+1. Loading the data & Do data conditioning
+2. Do Exploratory Data Analysis (EDA) to gain more insight regarding the problem
+3. Pre-processing the data
+4. Modeling the Data
+5. Search for optimal parameters of the model
+6. Evaluate the Model
+7. Conclusions & recomendations
+
+## **Data Understanding**
+#### Data Source
+Dataset Source: https://www.kaggle.com/datasets/volodymyrgavrysh/bank-marketing-campaigns-dataset which the data modified from [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
+
+#### Dataset Description
+The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be ('yes') or not ('no') subscribed.
+- Data Set Characteristics: Multivariate
+- Attribute Characteristics: Real
+- Associated Tasks: Classification
+- Number of Instances: 41188
+- Number of Attributes: 21
+- Missing Values: coded as **'unknown'**
+- Area: Business
+- Dataset period: from May 2008 to November 2010
+
+#### Attributes Information
+Input variables:
+- Bank client data:
+  1. `age` (numeric)
+  2. `job` : type of job (categorical: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed','services','student','technician','unemployed','unknown')
+  3. `marital` : marital status (categorical: 'divorced','married','single','unknown'; note: 'divorced' means divorced or widowed)
+  4. `education` (categorical: 'basic.4y','basic.6y','basic.9y','high.school','illiterate','professional.course','university.degree','unknown')
+  5. `default`: has credit in default? (categorical: 'no','yes','unknown')
+  6. `housing`: has housing loan? (categorical: 'no','yes','unknown')
+  7. `loan`: has personal loan? (categorical: 'no','yes','unknown')
+
+- Related with the last contact of the current campaign:
+  8. `contact`: contact communication type (categorical: 'cellular','telephone')
+  9. `month`: last contact month of year (categorical: 'mar' to 'dec')
+  10. `day_of_week`: last contact day of the week (categorical: 'mon','tue','wed','thu','fri')
+  11. `duration`: last contact duration, in seconds (numeric). Important note: this attribute highly affects the output target (e.g., if duration=0 then y='no'). Yet, the duration is not known before a call is performed. Also, after the end of the call y is obviously known. Thus, this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model.
+
+- Other attributes:
+  12. `campaign`: number of contacts performed during this campaign and for this client (numeric, includes last contact)
+  13. `pdays`: number of days that passed by after the client was last contacted from a previous campaign (numeric; 999 means client was not previously contacted)
+  14. `previous`: number of contacts performed before this campaign and for this client (numeric)
+  15. `poutcome`: outcome of the previous marketing campaign (categorical: 'failure','nonexistent','success')
+
+- Social and economic context attributes:
+  16. `emp.var.rate`: employment variation rate - quarterly indicator (numeric)
+  17. `cons.price.idx`: consumer price index - monthly indicator (numeric)
+  18. `cons.conf.idx`: consumer confidence index - monthly indicator (numeric)
+  19. `euribor3m`: euribor 3 month rate - daily indicator (numeric)
+  20. `nr.employed`: number of employees - quarterly indicator (numeric)
+
+- Output variable (desired target):
+  21. `y` - has the client subscribed a term deposit? (binary: 'yes','no')
+
+
+---
+# **Data Processing**
+---
+
+Taking a closer look, we see that some of the following characteristics have little bearing on the effectiveness of the marketing effort: 
+- The `default` variables: It is related to binary credit in default categories and has too many unknown data (20% of all data) to be dropped. Meanwhile, the data of this variable are imbalance where 3 data as non-default and the rest are default. Instead of removing samples, this variable will be excluded for further processing.
+- The `contact` variable is deleted since the contact method (cellular, telephone, and unknown) provides no useful information. 
+- The `duration` variable will be excluded from modeling process since we are intending to predict the potential customer prior the calling.
+
+On the other hand, the new variable that created (`campaign_reps`, `pdays_class` & `age_group` as in categorical variable) will be utilized to replace `campaign`, `pdays`, and `age` which was numerical variable. To help achieve this aim, the following important columns are included in a new subset.
+
+## Model Selection
+
+CV Score ROC_AUC	Mean ROC_AUC	SDev
+Model			
+XGBoost	[0.808, 0.797, 0.793, 0.796, 0.784]	0.795521	0.007763
+Logistic Regression	[0.788, 0.775, 0.775, 0.768, 0.77]	0.775084	0.006964
+Random Forest	[0.744, 0.754, 0.757, 0.749, 0.745]	0.749982	0.004970
+Decision Tree	[0.62, 0.622, 0.619, 0.621, 0.595]	0.615219	0.009985
+
+ROC_AUC Score
+Model	
+Random Forest	0.633011
+Decision Tree	0.629247
+XGBoost	0.614783
+Logistic Regression	0.573347
+
+Between 4 models candidate, XGBoost, LogReg, and Random Forest have relatively similar ROC_AUC score. Nevertheless, Random Forest has the lowest deviation score (0.004) compared to others.
+
+Based on the benchmark result, XGBoost has the highest mean cross validation score approximately around 79%. However, Random Forest has the highest ROC-AUC score on test set 63%. Therefore, Random Forest will be used for further processing according test set score. 
+
+## **Imbalance Treatment**
+
+Since the target (`deposit`) consists of yes (11%) and no (88%), it indicates imbalance data. It will affects on model's prediction. Moreover, we want to surpress the False Positive prediction as it can damaging the Bank's profit on deposits. Therefore, imbalance treatment will be applied. This project will implement Random Over Sampling and Random Under Sampling for imbalance treatment based on Random Forest model as it has the highest benchmark score.
+
+No Treatment
+[[6698   99]
+ [ 644  208]]
+Random Forest_NoTreat ROC-AUC Score :  61.5 %
+Random Forest_NoTreat CV Mean Score :  0.749
+
+
+Random Over Sampling
+[[5890  907]
+ [ 482  370]]
+Random Forest_ROS ROC-AUC Score     :  65.0 %
+Random Forest_ROS CV Mean Score     :  0.969
+
+
+Random Under Sampling
+[[5002 1795]
+ [ 268  584]]
+Random Forest_RUS ROC-AUC Score     :  71.1 %
+Random Forest_RUS CV Mean Score     :  0.759
+
+## Hyperparameter Tuning
+
+Obtaining Best Model for RandomForest
+Best Parameters:  {'model__max_depth': 8, 'model__max_features': 'sqrt'}
+Best Scores:  0.7912778385657774
+
+ROC AUC Score Default Random Forest :  0.7106794560704427
+ROC AUC Score Tuned Random Forest   :  0.744451173225415
+
+After tuning, the ROC-AUC score slightly increase from 71% becoming 74%. Therefore, we will used tuned Random Forest model for final model.
+
+## **Modeling with Best Parameters and Selected Features**
+
+ROC AUC Score Default Random Forest :  0.71
+ROC AUC Score Tuned Random Forest   :  0.74
+ROC AUC Score Select Random Forest  :  0.75
