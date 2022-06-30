@@ -182,6 +182,55 @@ After tuning, the ROC-AUC score slightly increase from 71% becoming 74%. Therefo
 
 ## **Modeling with Best Parameters and Selected Features**
 
-ROC AUC Score Default Random Forest :  0.71
-ROC AUC Score Tuned Random Forest   :  0.74
-ROC AUC Score Select Random Forest  :  0.75
+<br>ROC AUC Score Default Random Forest :  0.71
+<br>ROC AUC Score Tuned Random Forest   :  0.74
+<br>ROC AUC Score Select Random Forest  :  0.75
+
+# **Conclusion**
+
+Below a guide in assesing our model:
+* 0.9 - 1.0 = excellent
+* 0.8 - 0.9 = good
+* 0.7 - 0.8 = fair
+* 0.6 - 0.7 = poor
+* 0.5 - 0.6 = fail
+<br> Source: [Model Scoring](https://medium.com/@sardina.aleigha/bank-marketing-a-classification-exercise-fd9b77a1da4d)
+
+Our model has fair performance as we obtain 0.75 of ROC-AUC score. On Bank's Marketing Campaign, between False Positive (FP) and False Negative (FN), we want to suppress the prediction on FP. Because higher FP value means we predict the customer will subscribe to a deposit but in actual they don't. Having this condition the telemarketer will waste more resource on non-prostective customers. Not only do we lost the profit but also it becomes a burden for operational cost.
+Why we not focused on minimize the False Negative (FN)? FN means that we predict the customer not do the deposit but they actually do the deposit, this didnt give any loss for business. Why ? Because at last they do the deposit, and we dont use any marketing cost to make them do the deposit.
+
+On the otherhand, based on confusion matrix output, our model can reduce the FP class from 1795 customers to 848 customers. This mean we can reduce up to +50% of the big loss operational business cost and efficiency can be reach. For example :
+
+* FP  Simulation Default
+<br>Total Customer = 2000 persons
+<br>Total FP = 1795 persons
+<br> Marketing cost = 1 /persons
+<br> Revenue = 10 /persons
+<br> Total marketing Cost : 1 * 2000 = 2000
+<br> Total Revenue = 10 * (2000-1795) = 2050
+<br> Total Profit = 2050 - 2000 = 50
+
+* FP Simulation After Feature Selection
+<br>Total Customer = 2000 persons
+<br>Total FP = 848 persons
+<br> Marketing cost = 1 / persons
+<br> Revenue = 10 / persons
+<br> Total marketing Cost : 1 * 2000 = 2000
+<br> Total Revenue = 10 * (2000-848) = 11,520
+<br> Total Profit = 11520 - 2000 = 9,520
+
+As following example, we can see that there are big efficiency & effectiveness in 
+
+# **Recommendation**
+
+The following are some significant factors that should be prioritized in order to increase campaign success rates: 
+
+- Loan & Balance: We discovered that many term deposit subscribers were loan-free. There are also those who have a loan but have not subscribed to the deposit, as well as those who do not have a loan but have not signed to the deposit. The primary reason for this is balance. Those with a sufficient amount are more likely to subscribe to a term deposit. 
+
+- Contacts: Based on our findings, the majority of customers that subscribe to deposit have had contacted less than six time. Hence, contacting someone more than six times should be avoided.
+
+- Jobs: Targeting students, non-workers, or admin will result in more success. Furthermore, the data revealed that those with employment professions such as blue-collar, entrepreneur, services, house-maid, and so on had a very low favorable reaction. Contact with such persons should be avoided, or at the very least, other aspects such as balance, debt, and education should be considered before addressing them. Overall, this component should be used in conjunction with education. 
+
+- Education is a minor yet crucial thing to consider. According to our findings, there are many subscribers with a strong educational background. We feel that an intelligent person with some understanding of investing will take some extra time to understand the offer presented.
+
+-We can also adding another related features such as saving balances
