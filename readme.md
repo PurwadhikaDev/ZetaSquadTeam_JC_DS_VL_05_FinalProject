@@ -7,14 +7,6 @@ Member  :
 - Deryl Baharudin
 
 ---
-**SECTION**:
-<BR> [1. DATA UNDERSTANDING](#1-data-understanding)
-<BR> [2. DATA PROCESSING](#3-data-processing)
-<BR> [3. CONCLUSION](#4-conclusion)
-<BR> [4. RECOMMENDATION](#5-recommendation)
-
-
----
 # **Business Problem and Data Understanding**
 ---
 ## **Define Business Problem**
