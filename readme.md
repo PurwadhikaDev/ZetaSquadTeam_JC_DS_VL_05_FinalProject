@@ -219,7 +219,7 @@ On the otherhand, based on confusion matrix output, our model can reduce the FP 
 <br> Total Revenue = 10 * (2000-848) = 11,520
 <br> Total Profit = 11520 - 2000 = 9,520
 
-As following example, we can see that there are big efficiency & effectiveness in 
+As following example, we can see that there are big efficiency & effectiveness if we suppress the FP
 
 # **Recommendation**
 
