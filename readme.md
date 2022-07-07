@@ -59,7 +59,7 @@ These are the following steps that will be performed to complete the task:
 
 In this analysis we want to see the tendency of customers to subscribe a term deposit by doing a machine learning analysis and evaluate the model performance through ROC-AUC Score. 
 
-![Confusion_Matrix](https://discord.com/channels/958011546762629223/984484550312865893/994622861547421738)
+![Confusion_Matrix]([https://discord.com/channels/958011546762629223/984484550312865893/994622861547421738](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F2102%2F1*fxiTNIgOyvAombPJx5KGeA.png&f=1&nofb=1))
 
 
 True Negative (TN)  | Actual(0) & Predict(0):
