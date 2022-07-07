@@ -121,7 +121,12 @@ Input variables:
 - Output variable (desired target):
   21. `y` - has the client subscribed a term deposit? (binary: 'yes','no')
 
+---
+# **Exploratory Data Analysis**
+---
 
+[Dashboard_1]([https://github.com/PurwadhikaDev/ZetaSquadTeam_JC_DS_VL_05_FinalProject/blob/main/Images/Confusion%20Matrix.png](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1?publish=yes))
+![Dashboard_1]([https://github.com/PurwadhikaDev/ZetaSquadTeam_JC_DS_VL_05_FinalProject/blob/main/Images/Confusion%20Matrix.png](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1?publish=yes))
 ---
 # **Data Processing**
 ---
@@ -135,19 +140,19 @@ On the other hand, the new variable that created (`campaign_reps`, `pdays_class`
 
 ## Model Selection
 
-CV Score ROC_AUC	Mean ROC_AUC	SDev
+CV Score ROC_AUC	                                    Mean ROC_AUC	SDev
 Model			
-XGBoost	[0.808, 0.797, 0.793, 0.796, 0.784]	0.795521	0.007763
-Logistic Regression	[0.788, 0.775, 0.775, 0.768, 0.77]	0.775084	0.006964
-Random Forest	[0.744, 0.754, 0.757, 0.749, 0.745]	0.749982	0.004970
-Decision Tree	[0.62, 0.622, 0.619, 0.621, 0.595]	0.615219	0.009985
+XGBoost	            [0.808, 0.797, 0.793, 0.796, 0.784]	 0.795521	  0.007763
+Logistic Regression	[0.788, 0.775, 0.775, 0.768, 0.77]	 0.775084	  0.006964
+Random Forest	    [0.744, 0.754, 0.757, 0.749, 0.745]	 0.749982	  0.004970
+Decision Tree	    [0.62, 0.622, 0.619, 0.621, 0.595]	 0.615219	  0.009985
 
-ROC_AUC Score
-Model	
-Random Forest	0.633011
-Decision Tree	0.629247
-XGBoost	0.614783
-Logistic Regression	0.573347
+<br>ROC_AUC Score
+<br>Model	
+<br>Random Forest	0.633011
+<br>Decision Tree	0.629247
+<br>XGBoost	0.614783
+<br>Logistic Regression	0.573347
 
 Between 4 models candidate, XGBoost, LogReg, and Random Forest have relatively similar ROC_AUC score. Nevertheless, Random Forest has the lowest deviation score (0.004) compared to others.
 
@@ -158,33 +163,33 @@ Based on the benchmark result, XGBoost has the highest mean cross validation sco
 Since the target (`deposit`) consists of yes (11%) and no (88%), it indicates imbalance data. It will affects on model's prediction. Moreover, we want to surpress the False Positive prediction as it can damaging the Bank's profit on deposits. Therefore, imbalance treatment will be applied. This project will implement Random Over Sampling and Random Under Sampling for imbalance treatment based on Random Forest model as it has the highest benchmark score.
 
 No Treatment
-[[6698   99]
- [ 644  208]]
-Random Forest_NoTreat ROC-AUC Score :  61.5 %
-Random Forest_NoTreat CV Mean Score :  0.749
+<br>[[6698   99]
+<br> [ 644  208]]
+<br>Random Forest_NoTreat ROC-AUC Score :  61.5 %
+<br>Random Forest_NoTreat CV Mean Score :  0.749
 
 
 Random Over Sampling
-[[5890  907]
- [ 482  370]]
-Random Forest_ROS ROC-AUC Score     :  65.0 %
-Random Forest_ROS CV Mean Score     :  0.969
+<br>[[5890  907]
+<br> [ 482  370]]
+<br>Random Forest_ROS ROC-AUC Score     :  65.0 %
+<br>Random Forest_ROS CV Mean Score     :  0.969
 
 
 Random Under Sampling
-[[5002 1795]
- [ 268  584]]
-Random Forest_RUS ROC-AUC Score     :  71.1 %
-Random Forest_RUS CV Mean Score     :  0.759
+<br>[[5002 1795]
+<br> [ 268  584]]
+<br>Random Forest_RUS ROC-AUC Score     :  71.1 %
+<br>Random Forest_RUS CV Mean Score     :  0.759
 
 ## Hyperparameter Tuning
 
 Obtaining Best Model for RandomForest
-Best Parameters:  {'model__max_depth': 8, 'model__max_features': 'sqrt'}
-Best Scores:  0.7912778385657774
+<br>Best Parameters:  {'model__max_depth': 8, 'model__max_features': 'sqrt'}
+<br>Best Scores:  0.7912778385657774
 
-ROC AUC Score Default Random Forest :  0.7106794560704427
-ROC AUC Score Tuned Random Forest   :  0.744451173225415
+<br>ROC AUC Score Default Random Forest :  0.7106794560704427
+<br>ROC AUC Score Tuned Random Forest   :  0.744451173225415
 
 After tuning, the ROC-AUC score slightly increase from 71% becoming 74%. Therefore, we will used tuned Random Forest model for final model.
 
@@ -241,4 +246,4 @@ The following are some significant factors that should be prioritized in order t
 
 - Education is a minor yet crucial thing to consider. According to our findings, there are many subscribers with a strong educational background. We feel that an intelligent person with some understanding of investing will take some extra time to understand the offer presented.
 
--We can also adding another related features such as saving balances
+- We can also adding another related features such as saving balances
