@@ -57,13 +57,21 @@ Our goal is:
 
 These are the following steps that will be performed to complete the task:
 
-1. Loading the data & Do data conditioning
-2. Do Exploratory Data Analysis (EDA) to gain more insight regarding the problem
-3. Pre-processing the data
-4. Modeling the Data
-5. Search for optimal parameters of the model
-6. Evaluate the Model
-7. Conclusions & recomendations
+In this analysis we want to see the tendency of customers to subscribe a term deposit by doing a machine learning analysis and evaluate the model performance through ROC-AUC Score. 
+
+![Confusion_Matrix]([https://raw.githubusercontent.com/jpwhite3/northwind-SQLite3/master/Northwind_ERD.png](https://cdn-images-1.medium.com/max/950/1*PPgItHcPSaskyjLMWFC-Kw.png))
+
+
+True Negative (TN)  | Actual(0) & Predict(0):
+The model predicts that the consumer will not make a deposit, and the customer does not. 
+True Positive (TP)  | Actual(1) & Predict(1): 
+The model predicts that the consumer will make a deposit, and the customer does. 
+False Negative (FN) | Actual(1) & Predict(0): 
+The model predicts that the customer will not make a deposit, however the customer does make a deposit. 
+False Positive (FP) | Actual(0) & Predict(1): 
+The model predicts a deposit even if the consumer does not make a deposit.
+
+Therefore, we try to suppress the False Positive (FP) Score of the Confusion Matrix to improve the telemarketing efforts.
 
 ## **Data Understanding**
 #### Data Source
