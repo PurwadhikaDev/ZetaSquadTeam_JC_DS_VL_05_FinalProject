@@ -126,7 +126,27 @@ Input variables:
 ---
 
 [Dashboard_1](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1?publish=yes)
-![Dashboard_1](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1?publish=yes))
+![Dashboard_1](https://github.com/PurwadhikaDev/ZetaSquadTeam_JC_DS_VL_05_FinalProject/blob/main/Images/Dashboard%201.png)
+
+- The percentage of people who does the deposit (11%)  are lower than the people who doesn’t (89%)
+- Single & divorce category have more percentage of deposit customer than the married category (single deposit : 13.65%, married deposit : 10.10%, divorced deposit : 10.41%). It’s probably due to customer with single status has less living expenses compared to the other two categories.
+- Most of the customer have personal loans & housing Loan, there are about 46% of total customers
+
+
+[Dashboard_2](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1a)
+![Dashboard_2](https://github.com/PurwadhikaDev/ZetaSquadTeam_JC_DS_VL_05_FinalProject/blob/main/Images/Dashboard%201a.png)
+
+- The job vs age boxplot displays that despite of the most customers are in prime working age, the median of all job classes are generally above 40yo (except the student class). It means that the bank targeted more on experience workers instead of entry level workers. It’s probably that telemarketer perceives experience workers has more money and tend to subscribe to deposits.
+- Based on call durations boxplot, it can be seen where customers who are interested in opening a deposit spend time 50% longer (median > 6mins) on the phone compared to those who are not interested (median < 4mins).
+
+
+
+[Dashboard_3](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard2a)
+![Dashboard_3](https://github.com/PurwadhikaDev/ZetaSquadTeam_JC_DS_VL_05_FinalProject/blob/main/Images/Dashboard%202a.png)
+- From the charts and table above, it can be seen that the top 3 deposit rate based on job class are student, non-worker (mostly retiree) and admin. It is also supported by the age group variable where early working age and elderly have the highest deposit rate, 21.9% and 45.9% respectively. 
+- The previous campaign rate also illustrate the resemblance output with the current campaign. From the table we can see that telemarketer did not continue targeting the highest deposit rate from previous campaign but instead reaching admin, blue-collar and technician where they have low deposit rate. We can infer that telemarketer has false perception on customer’s market target. 
+
+
 ---
 # **Data Processing**
 ---
