@@ -62,14 +62,14 @@ In this analysis we want to see the tendency of customers to subscribe a term de
 ![Confusion_Matrix](https://github.com/PurwadhikaDev/ZetaSquadTeam_JC_DS_VL_05_FinalProject/blob/main/Images/Confusion%20Matrix.png)
 
 
-True Negative (TN)  | Actual(0) & Predict(0):
-The model predicts that the consumer will not make a deposit, and the customer does not. 
-True Positive (TP)  | Actual(1) & Predict(1): 
-The model predicts that the consumer will make a deposit, and the customer does. 
-False Negative (FN) | Actual(1) & Predict(0): 
-The model predicts that the customer will not make a deposit, however the customer does make a deposit. 
-False Positive (FP) | Actual(0) & Predict(1): 
-The model predicts a deposit even if the consumer does not make a deposit.
+<br>True Negative (TN)  | Actual(0) & Predict(0):
+<br>The model predicts that the consumer will not make a deposit, and the customer does not. 
+<br>True Positive (TP)  | Actual(1) & Predict(1): 
+<br>The model predicts that the consumer will make a deposit, and the customer does. 
+<br>False Negative (FN) | Actual(1) & Predict(0): 
+<br>The model predicts that the customer will not make a deposit, however the customer does make a deposit. 
+<br>False Positive (FP) | Actual(0) & Predict(1): 
+<br>The model predicts a deposit even if the consumer does not make a deposit.
 
 Therefore, we try to suppress the False Positive (FP) Score of the Confusion Matrix to improve the telemarketing efforts.
 
