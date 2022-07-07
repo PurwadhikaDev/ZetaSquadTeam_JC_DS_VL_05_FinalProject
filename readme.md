@@ -125,8 +125,8 @@ Input variables:
 # **Exploratory Data Analysis**
 ---
 
-[Dashboard_1]([https://github.com/PurwadhikaDev/ZetaSquadTeam_JC_DS_VL_05_FinalProject/blob/main/Images/Confusion%20Matrix.png](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1?publish=yes))
-![Dashboard_1]([https://github.com/PurwadhikaDev/ZetaSquadTeam_JC_DS_VL_05_FinalProject/blob/main/Images/Confusion%20Matrix.png](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1?publish=yes))
+[Dashboard_1](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1?publish=yes)
+![Dashboard_1](https://public.tableau.com/app/profile/monika.pangestu/viz/Zeta-EDAPresentationVer_/Dashboard1?publish=yes))
 ---
 # **Data Processing**
 ---
