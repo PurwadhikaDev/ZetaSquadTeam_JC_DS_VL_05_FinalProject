@@ -4,7 +4,6 @@ Group   : Zeta Squad
 Member  :
 - Zaki Fajri
 - Monika Pangestu
-- Deryl Baharudin
 
 ---
 # **Business Problem and Data Understanding**
